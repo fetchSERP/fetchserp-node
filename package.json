@@ -7,6 +7,14 @@
   "keywords": ["fetchserp", "seo", "serp", "sdk"],
   "author": "",
   "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fetchSERP/fetchserp-node.git"
+  },
+  "homepage": "https://github.com/fetchSERP/fetchserp-node#readme",
+  "bugs": {
+    "url": "https://github.com/fetchSERP/fetchserp-node/issues"
+  },
   "exports": {
     ".": "./index.js"
   },

@@ -1,5 +1,7 @@
 # FetchSERP Node SDK
 
+[GitHub Repository](https://github.com/fetchSERP/fetchserp-node)
+
 Tiny, dependency-free Node.js client for the [FetchSERP](https://fetchserp.com) API.
 
 ## Installation
