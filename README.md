@@ -57,31 +57,81 @@ const ranking = await client.getDomainRanking({
 console.log(ranking.data.results);
 ```
 
-All available methods map 1-to-1 to the public REST endpoints described in the API documentation:
+## Complete API Endpoints Reference
 
-| Method | Underlying endpoint |
-| ------ | ------------------- |
-| `getBacklinks` | `GET /api/v1/backlinks` |
-| `getDomainEmails` | `GET /api/v1/domain_emails` |
-| `getDomainInfos` | `GET /api/v1/domain_infos` |
-| `getKeywordsSearchVolume` | `GET /api/v1/keywords_search_volume` |
-| `getKeywordsSuggestions` | `GET /api/v1/keywords_suggestions` |
-| `getLongTailKeywords` | `GET /api/v1/long_tail_keywords_generator` |
-| `getMozDomainAnalysis` | `GET /api/v1/moz` |
-| `getPageIndexation` | `GET /api/v1/page_indexation` |
-| `getDomainRanking` | `GET /api/v1/ranking` |
-| `scrapePage` | `GET /api/v1/scrape` |
-| `scrapeDomain` | `GET /api/v1/scrape_domain` |
-| `scrapePageJs` | `POST /api/v1/scrape_js` |
-| `scrapePageJsWithProxy` | `POST /api/v1/scrape_js_with_proxy` |
-| `getSerp` | `GET /api/v1/serp` |
-| `getSerpHtml` | `GET /api/v1/serp_html` |
-| `getSerpJs` | `GET /api/v1/serp_js` |
-| `getSerpJsResult` | `GET /api/v1/serp_js/{uuid}` |
-| `getSerpText` | `GET /api/v1/serp_text` |
-| `getUser` | `GET /api/v1/user` |
-| `getWebPageAiAnalysis` | `GET /api/v1/web_page_ai_analysis` |
-| `getWebPageSeoAnalysis` | `GET /api/v1/web_page_seo_analysis` |
+The SDK provides access to **22 powerful endpoints** for comprehensive SEO data analysis:
+
+### 🔍 Search Engine Results (SERP)
+
+**`getSerp({ query, search_engine, country, pages_number })`**  
+Get clean SERP results from Google, Bing, Yahoo, or DuckDuckGo. Perfect for tracking rankings and competitor analysis.
+
+**`getSerpHtml({ query, search_engine, country, pages_number })`**  
+Same as above but includes full HTML content of each result page. Ideal for content analysis and scraping.
+
+**`getSerpText({ query, search_engine, country, pages_number })`**  
+Returns SERP results with extracted text content from each page. Great for content research and analysis.
+
+**`getSerpJs({ query, country, pages_number })`** + **`getSerpJsResult({ uuid })`**  
+Two-step process to get Google SERP with **AI Overview** using JavaScript rendering. Solves CAPTCHAs automatically.
+
+### 📊 Keyword Research & Analysis
+
+**`getKeywordsSearchVolume({ keywords, country })`**  
+Get search volume, competition, and bidding data for any keywords. Essential for keyword planning.
+
+**`getKeywordsSuggestions({ url, keywords, country })`**  
+Discover related keywords based on a URL or seed keywords. Uncover new content opportunities.
+
+**`getLongTailKeywords({ keyword, search_intent, count })`**  
+Generate up to 500 long-tail variations for any keyword. Choose from informational, commercial, transactional, or navigational intent.
+
+### 🌐 Domain Intelligence
+
+**`getBacklinks({ domain, search_engine, country, pages_number })`**  
+Find backlinks pointing to any domain. Includes anchor text, context, and link attributes for SEO analysis.
+
+**`getDomainRanking({ keyword, domain, search_engine, country, pages_number })`**  
+Check where a specific domain ranks for target keywords across search engines.
+
+**`getDomainInfos({ domain })`**  
+Comprehensive domain analysis: DNS records, WHOIS data, SSL certificates, and technology stack detection.
+
+**`getDomainEmails({ domain, search_engine, country, pages_number })`**  
+Extract email addresses associated with any domain for outreach and contact discovery.
+
+**`getMozDomainAnalysis({ domain })`**  
+Get Moz Domain Authority, linking domains, ranking keywords, and competitive insights.
+
+**`getPageIndexation({ domain, keyword })`**  
+Check if a domain is indexed in search engines for specific keywords.
+
+### 🤖 Web Scraping & Content Extraction
+
+**`scrapePage({ url })`**  
+Extract HTML content from any webpage without JavaScript execution. Fast and reliable for static content.
+
+**`scrapeDomain({ domain, max_pages })`**  
+Scrape up to 200 pages from any domain. Perfect for site audits and content analysis.
+
+**`scrapePageJs({ url, js_script, payload })`**  
+Scrape dynamic content with custom JavaScript execution. Handle SPAs and interactive elements.
+
+**`scrapePageJsWithProxy({ url, country, js_script, payload })`**  
+Same as above but routes through country-specific proxies to bypass geo-restrictions.
+
+### 🔬 AI-Powered Analysis
+
+**`getWebPageAiAnalysis({ url, prompt })`**  
+Analyze any webpage using AI with custom prompts. Extract insights, summarize content, or analyze competitors.
+
+**`getWebPageSeoAnalysis({ url })`**  
+Comprehensive SEO audit: technical issues, meta tags, headings, content analysis, and optimization recommendations.
+
+### 👤 Account Management
+
+**`getUser()`**  
+Check your account information and remaining API credits.
 
 ## Error handling
 
