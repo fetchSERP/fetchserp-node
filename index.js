@@ -194,6 +194,12 @@ export class FetchSerpClient {
     return this._request('GET', `/api/v1/serp_js/${uuid}`);
   }
 
+  // GET /api/v1/serp_ai_mode
+  async getSerpAiMode({ query } = {}) {
+    if (!query) throw new Error('getSerpAiMode: "query" is required');
+    return this._request('GET', '/api/v1/serp_ai_mode', { query });
+  }
+
   // GET /api/v1/serp_text
   async getSerpText({ query, search_engine, country, pages_number } = {}) {
     if (!query) throw new Error('getSerpText: "query" is required');

@@ -59,7 +59,7 @@ console.log(ranking.data.results);
 
 ## Complete API Endpoints Reference
 
-The SDK provides access to **22 powerful endpoints** for comprehensive SEO data analysis:
+The SDK provides access to **23 powerful endpoints** for comprehensive SEO data analysis:
 
 ### 🔍 Search Engine Results (SERP)
 
@@ -74,6 +74,9 @@ Returns SERP results with extracted text content from each page. Great for conte
 
 **`getSerpJs({ query, country, pages_number })`** + **`getSerpJsResult({ uuid })`**  
 Two-step process to get Google SERP with **AI Overview** using JavaScript rendering. Solves CAPTCHAs automatically.
+
+**`getSerpAiMode({ query })`**  
+Get both AI Overview and AI Mode response in a single call. Less reliable than the 2-step process but returns results in under 30 seconds.
 
 ### 📊 Keyword Research & Analysis
 
@@ -182,3 +185,45 @@ node example.js
 
 If your key is valid you'll see your account information and remaining credits.
 
+## Deploying to production
+
+Because this package is a single, dependency-free ES module you can:
+
+• `npm install fetchserp-sdk --save` inside any Node 18+ application and commit the lock-file.  
+• Use it in serverless environments (AWS Lambda, Vercel, Netlify, Cloudflare Workers ≥ D1) without extra bundling steps.  
+• Bundle it with tools like esbuild / webpack; tree-shaking works out of the box.
+
+Remember to inject your `FETCHSERP_API_KEY` securely using environment variables or a secrets manager in your chosen hosting platform.
+
+## Publishing your fork to npm
+
+If you enhance this SDK or maintain your own fork you might want to publish it under a different scope on npm. A quick checklist:
+
+1. Create or sign-in to an npm account: <https://www.npmjs.com/signup>
+2. Add (or update) the package name in `package.json`—it must be unique on npm.  
+   For scoped packages, use the format `"@your-scope/fetchserp-sdk"`.
+3. Bump the `version` field following semantic-versioning rules.
+4. Log in from the terminal (stored in `~/.npmrc`):
+
+   ```bash
+   npm login --scope=@your-scope
+   ```
+
+5. Run the publish command from the project root:
+
+   ```bash
+   npm publish --access public
+   ```
+
+   Use `--access public` for scoped packages; non-scoped packages are public by default.
+
+6. Verify that your package appears on <https://www.npmjs.com/package/@your-scope/fetchserp-sdk> and install it elsewhere with:
+
+   ```bash
+   npm install @your-scope/fetchserp-sdk
+   ```
+
+Tips:
+• Include a meaningful `README.md`, `license`, and `keywords` so developers can discover your package.  
+• Use `npm unpublish --force` only for critical mistakes; npm discourages breaking changes after publication.  
+• Consider adding a `files` array or `.npmignore` to exclude dev files (tests, examples, *.md) from the published tarball.
