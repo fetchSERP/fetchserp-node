@@ -222,6 +222,12 @@ export class FetchSerpClient {
     if (!url) throw new Error('getWebPageSeoAnalysis: "url" is required');
     return this._request('GET', '/api/v1/web_page_seo_analysis', { url });
   }
+
+  // GET /api/v1/playwright_mcp
+  async getPlaywrightMcp({ prompt } = {}) {
+    if (!prompt) throw new Error('getPlaywrightMcp: "prompt" is required');
+    return this._request('GET', '/api/v1/playwright_mcp', { prompt });
+  }
 }
 
 export default FetchSerpClient; 
