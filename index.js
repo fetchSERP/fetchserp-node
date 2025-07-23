@@ -228,6 +228,21 @@ export class FetchSerpClient {
     if (!prompt) throw new Error('getPlaywrightMcp: "prompt" is required');
     return this._request('GET', '/api/v1/playwright_mcp', { prompt });
   }
+
+  // GET /api/v1/generate_wordpress_content
+  async generateWordpressContent({ user_prompt, system_prompt, ai_model } = {}) {
+    if (!user_prompt) throw new Error('generateWordpressContent: "user_prompt" is required');
+    if (!system_prompt) throw new Error('generateWordpressContent: "system_prompt" is required');
+    return this._request('GET', '/api/v1/generate_wordpress_content', { user_prompt, system_prompt, ai_model });
+  }
+
+  // GET /api/v1/generate_social_content
+  async generateSocialContent({ user_prompt, system_prompt, ai_model } = {}) {
+    if (!user_prompt) throw new Error('generateSocialContent: "user_prompt" is required');
+    if (!system_prompt) throw new Error('generateSocialContent: "system_prompt" is required');
+    return this._request('GET', '/api/v1/generate_social_content', { user_prompt, system_prompt, ai_model });
+  }
+
 }
 
 export default FetchSerpClient; 

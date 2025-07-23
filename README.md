@@ -59,7 +59,7 @@ console.log(ranking.data.results);
 
 ## Complete API Endpoints Reference
 
-The SDK provides access to **24 powerful endpoints** for comprehensive SEO data analysis:
+The SDK provides access to **26 powerful endpoints** for comprehensive SEO data analysis:
 
 ### 🔍 Search Engine Results (SERP)
 
@@ -133,6 +133,12 @@ Comprehensive SEO audit: technical issues, meta tags, headings, content analysis
 
 **`getPlaywrightMcp({ prompt })`**  
 Remote control a browser using GPT-4.1 via Playwright MCP server. Automate complex browser interactions with natural language commands.
+
+**`generateWordpressContent({ user_prompt, system_prompt, ai_model })`**  
+Generate SEO-optimized WordPress content using AI. Creates title and 800-1500 word content targeting specific keywords with customizable AI models.
+
+**`generateSocialContent({ user_prompt, system_prompt, ai_model })`**  
+Generate engaging social media content using AI. Create platform-specific posts, captions, and copy with customizable AI models and prompts.
 
 ### 👤 Account Management
 
