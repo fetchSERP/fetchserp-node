@@ -1,10 +1,15 @@
 {
   "name": "fetchserp-sdk",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Node.js SDK for FetchSERP API",
   "main": "index.js",
   "type": "module",
-  "keywords": ["fetchserp", "seo", "serp", "sdk"],
+  "keywords": [
+    "fetchserp",
+    "seo",
+    "serp",
+    "sdk"
+  ],
   "author": "",
   "license": "GPL-3.0",
   "repository": {
@@ -21,4 +26,4 @@
   "engines": {
     "node": ">=18.0.0"
   }
-} 
+}
